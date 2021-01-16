@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>トップ</title>
+    </head>
+    <body>
+        <h2>Flask Web Tools</h2>
+        <p>使いたい機能を選んでね</p>
+        <ul>
+            <li><a href="/upload">ファイルアップロード</a></li>
+            <li><a href="/regression">単回帰グラフ</a></li>
+            <li><a href="/predict">単回帰予測</a></li>
+            <li><a href="/merge">ファイル結合</a></li>
+            <li><a href="/download">ダウンロードファイル一覧</a></li>
+            <li><a href="/description">使い方</a></li>
+            <li><a href="/logout">ログアウト</a></li>
+        </ul>
+        <h2>アップロードされているファイル一覧</h2>
+        {% for i in data %}
+            <p>タイトル【{{i.title}}】</p>
+            <p>ファイル【{{i.file_path[7:]}}】</p>
+            <form method="GET" action="{{url_for('delete', id=i.id)}}">
+                <input value="削除" type="submit">
+            </form>
+        {% else %}
+            <p>何にもアップロードされていません</p>
+        {% endfor %}
+    </body>
+</html>

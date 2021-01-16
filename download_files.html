@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ダウンロード一覧</title>
+    </head>
+    <body>
+        <h2>ファイル一覧</h2>
+        <p>ダウンロード・削除したいファイルを選択してください</p>
+        {% for i in files %}
+            <p>ファイル：{{i}}</p>
+            <form method="GET" action="{{url_for('file_download', file_path=i)}}">
+                <input value="ダウンロード" type="submit" name="download">
+            </form>
+            <br>
+            <form method="GET" action="{{url_for('file_delete', file_path=i)}}">
+                <input value="削除" type="submit" name="delete" 
+                style="background: red;color:white">      
+            </form>        
+        {% else %}
+            <p>生成されたファイルがありません。</p>
+        {% endfor %}
+        <br>
+        <a href="/">Topに戻る</a>
+    </body>
+</html>

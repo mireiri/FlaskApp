@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>単回帰グラフ</title>
+    </head>
+    <body>
+        <h2>選択できるファイル一覧</h2>
+        <p>グラフを作成するファイルを選択してください</p>
+        {% for i in data %}
+            <form method="GET" action="{{url_for('regression_graph', id=i.id)}}">
+                <p>ファイル：{{i.file_path[7:]}}</p>
+                <input value="送信" type="submit" name="select_file">
+            </form>
+        {% else %}
+            <p>アップロードされたファイルはありません</p>
+        {% endfor %}
+        <br>
+        <a href="/">Topに戻る</a>
+    </body>
+</html>

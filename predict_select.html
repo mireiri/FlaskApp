@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>単回帰予測</title>
+    </head>
+    <body>
+        <h2>選択できるファイル一覧</h2>
+        <p>学習ファイルと予測ファイルを選択してください</p>
+        <form method="POST" action="/predict_file">
+            {% for i in data %}
+                <p>ファイル：{{i.file_path[7:]}}
+                <input type="checkbox" name="select_files" value="{{i.id}}"></p>
+            {% else %}
+                <p>アップロードされたファイルはありません</p>
+            {% endfor %}
+        <button type="submit">送信</button>
+        </form>
+        <br>
+        <a href="/">Topに戻る</a>
+    </body>
+</html>

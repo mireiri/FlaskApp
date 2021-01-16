@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ファイルのアップロード</title>
+    </head>
+    <body>
+        <form method="POST" action="/register" enctype="multipart/form-data">
+            <h3>タイトル</h3><input type="text" name="title" size="20">
+            <h3>ファイル</h3><input type="file" name="file">
+            <br>
+            <br>
+            <input value="送信" type="submit">&nbsp;<input value="リセット"
+                   type="reset">
+        </form>
+        <br>
+        <a href="/">トップに戻る</a>
+    </body>
+</html>  
